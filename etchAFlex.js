@@ -41,6 +41,8 @@ function createGrid() {
     createColumn(element);
     createColumn(element);
     createColumn(element);
+
+    
   });
 }
 //----------------------------------------------------------------------------->
@@ -49,30 +51,40 @@ function createGrid() {
  */
 container.addEventListener("mouseover", (event) => {
     
-    event.target.style.backgroundColor = "black"
+  event.target.style.backgroundColor = "black"
 
-    setTimeout(() => {event.target.style.backgroundColor = "white";}, 1000);
-  },
-  false,
+  setTimeout(() => {event.target.style.backgroundColor = "white";}, 1000);
+},
+false,
 );
+
 //----------------------------------------------------------------------------->
 /**
- * 
+ * Child container
  * @param {*} element Represents a parent node. The parent node is used to attach a child element.
  */
 function createColumn(element) {
   let column = document.createElement("div");
   column.className = "column";
+  column.style.backgroundColor = "grey"
+  column.style.flex = "1";
+  column.style.flexBasis = "100%";
+  column.style.aspectRatio = "1/1";
+  
+
+  
   
   element.append(column)
 }
 //----------------------------------------------------------------------------->
 /**
- * 
+ * Parent container 
  */
 function createRow() {
   let row = document.createElement("div");
   row.className = "row";
+  //row.style.border = "2px solid black"
+  row.style.display = "flex";
   
   
   container.append(row);
@@ -83,7 +95,11 @@ function createRow() {
  */
 function containerSetup() {
   container.style.maxWidth = "960px";
+  container.style.padding = "0px"
   container.style.margin = "0 auto";
+  container.style.height = "960px"
+  container.style.border = "2px solid black"
+  
 }
 //----------------------------------------------------------------------------->
 /**
