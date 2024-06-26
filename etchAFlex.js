@@ -64,7 +64,7 @@ container.addEventListener("mouseover", (event) => {
     
   event.target.style.backgroundColor = randomColor();
 
-  setTimeout(() => {event.target.style.backgroundColor = "#faf0e5";}, 1000);
+  //setTimeout(() => {event.target.style.backgroundColor = "#faf0e5";}, 1000);
 },
 false,
 );
