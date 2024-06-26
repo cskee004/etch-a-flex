@@ -29,21 +29,19 @@ createGrid();
  */
 function createGrid() {
   
-  for(let i = 0; i < 4; i++){
+  for(let i = 0; i < 100; i++){
     createRow();
-  }
-  const rowList = document.querySelectorAll(".row")
+  };
+  
+  const rowList = document.querySelectorAll(".row");
   let rowArray = Array.from(rowList);
-  console.log(rowArray)
+  console.log(rowArray);
 
-  rowList.forEach(element => {
-    createColumn(element);
-    createColumn(element);
-    createColumn(element);
-    createColumn(element);
-
-    
-  });
+  for (let j = 0; j < 100; ++j){
+    rowList.forEach(element => {
+      createColumn(element);
+    })
+  };
 }
 //----------------------------------------------------------------------------->
 /**
@@ -66,7 +64,6 @@ false,
 function createColumn(element) {
   let column = document.createElement("div");
   column.className = "column";
-  column.style.backgroundColor = "grey"
   column.style.flex = "1";
   column.style.flexBasis = "100%";
   column.style.aspectRatio = "1/1";
