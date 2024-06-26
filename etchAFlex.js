@@ -101,3 +101,10 @@ function bodySetup() {
   body.style.color = "#FFFFF0";
   body.style.fontSize = "36px";
 }
+//----------------------------------------------------------------------------->
+/**
+ * 
+ */
+function headerSetup() {
+  
+}
