@@ -1,9 +1,3 @@
-// Goal 1: Implement a set of boxes that change color on mouse over events
-// Goal 2: Create a webpage with a 16x16 grid of flex boxes 
-// Goal 3: Implement a method that takes two non-negative integers amd returns
-// Goal 4: Implement a method that creates n amount of individual flex boxes.
-
-
 // Colors:
 //    Body background: #36454f
 //    Heading text: #FFFFF0
@@ -13,11 +7,14 @@
 
 //----------------------------------------------------------------------------->
 const body = document.body;
+const header = document.querySelector(".header")
 const container = document.querySelector(".container");
 const row = document.querySelector(".row")
 //----------------------------------------------------------------------------->
 
 bodySetup();
+
+headerSetup();
  
 containerSetup();
 
@@ -25,18 +22,17 @@ createGrid();
 
 //----------------------------------------------------------------------------->
 /**
- * Create n number of rows, then for each row, create n number of columns. 
+ * @param {*} gridBoxHeight Specifies how many boxes high 
+ * @param {*} gridBoxWidth Specifies how many boxes wide
  */
-function createGrid() {
+function createGrid(gridBoxHeight, gridBoxWidth) {
   
   for(let i = 0; i < 100; i++){
     createRow();
   };
   
   const rowList = document.querySelectorAll(".row");
-  let rowArray = Array.from(rowList);
-  console.log(rowArray);
-
+  
   for (let j = 0; j < 100; ++j){
     rowList.forEach(element => {
       createColumn(element);
@@ -55,11 +51,17 @@ container.addEventListener("mouseover", (event) => {
 },
 false,
 );
-
+//----------------------------------------------------------------------------->
+/**
+ * 
+ */
+header.addEventListener("click", (event) => {
+  // prompt the user
+})
 //----------------------------------------------------------------------------->
 /**
  * Child container
- * @param {*} element Represents a parent node. The parent node is used to attach a child element.
+ * @param {*} element Represents a row element to create coloumn within.
  */
 function createColumn(element) {
   let column = document.createElement("div");
@@ -96,15 +98,43 @@ function containerSetup() {
  */
 function bodySetup() {
   body.style.fontFamily = "'Roboto', sans-serif";
-  body.style.textAlign = "center";
   body.style.backgroundColor = "#36454f";
-  body.style.color = "#FFFFF0";
-  body.style.fontSize = "36px";
+
 }
 //----------------------------------------------------------------------------->
 /**
  * 
  */
 function headerSetup() {
-  
+  header.style.display = "flex";
+  header.style.padding = "18px"
+  header.style.justifyContent = "center";
+  header.style.gap = "100px";
+  titleSetup();
+  buttonSetup();
+}
+//----------------------------------------------------------------------------->
+/**
+ * 
+ */
+function titleSetup() {
+  let title = document.createElement("div");
+  title.style.color = "#FFFFF0";
+  title.style.fontSize = "36px";
+  title.style.fontWeight = "800";
+  title.innerHTML = "Etch A Flex";
+  header.append(title);
+}
+//----------------------------------------------------------------------------->
+/**
+ * 
+ */
+function buttonSetup() {
+  let button = document.createElement("button");
+  button.type = "button";
+  button.innerHTML = "Create New Grid";
+  button.style.cursor = "pointer";
+  button.style.padding = "8px 16px";
+  button.style.borderRadius = "8px";
+  header.append(button);
 }
