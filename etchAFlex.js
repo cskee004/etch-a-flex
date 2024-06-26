@@ -4,24 +4,17 @@
 // Goal 4: Implement a method that creates n amount of individual flex boxes.
 
 
-// Colors Used:
+// Colors:
 //    Body background: #36454f
 //    Heading text: #FFFFF0
 //    Sketch pad background: #FAF0E5
-// Fonts Used:
+// Fonts:
 //    Body: Roboto
 
 //----------------------------------------------------------------------------->
-document.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
-});
-
 const body = document.body;
 const container = document.querySelector(".container");
 const row = document.querySelector(".row")
-
-
-
 //----------------------------------------------------------------------------->
 
 bodySetup();
