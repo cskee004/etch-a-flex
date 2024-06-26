@@ -3,6 +3,15 @@
 // Goal 3: Implement a method that takes two non-negative integers amd returns
 // Goal 4: Implement a method that creates n amount of individual flex boxes.
 
+
+// Colors Used:
+//    Body background: #36454f
+//    Heading text: #FFFFF0
+//    Sketch pad background: #FAF0E5
+// Fonts Used:
+//    Body: Roboto
+
+//----------------------------------------------------------------------------->
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
 });
@@ -21,9 +30,7 @@ containerSetup();
 
 createGrid();
 
-
-// size of 16 x 16 grid 
-
+//----------------------------------------------------------------------------->
 /**
  * Create n number of rows, then for each row, create n number of columns. 
  */
@@ -51,7 +58,7 @@ container.addEventListener("mouseover", (event) => {
     
   event.target.style.backgroundColor = "black"
 
-  setTimeout(() => {event.target.style.backgroundColor = "white";}, 1000);
+  setTimeout(() => {event.target.style.backgroundColor = "#faf0e5";}, 1000);
 },
 false,
 );
@@ -67,10 +74,6 @@ function createColumn(element) {
   column.style.flex = "1";
   column.style.flexBasis = "100%";
   column.style.aspectRatio = "1/1";
-  
-
-  
-  
   element.append(column)
 }
 //----------------------------------------------------------------------------->
@@ -80,10 +83,7 @@ function createColumn(element) {
 function createRow() {
   let row = document.createElement("div");
   row.className = "row";
-  //row.style.border = "2px solid black"
   row.style.display = "flex";
-  
-  
   container.append(row);
 }
 //----------------------------------------------------------------------------->
@@ -95,14 +95,16 @@ function containerSetup() {
   container.style.padding = "0px"
   container.style.margin = "0 auto";
   container.style.height = "960px"
-  container.style.border = "2px solid black"
-  
+  container.style.backgroundColor = "#faf0e5";
 }
 //----------------------------------------------------------------------------->
 /**
  * 
  */
 function bodySetup() {
-  body.style.fontFamily = "'Open Sans', sans-serif";
+  body.style.fontFamily = "'Roboto', sans-serif";
   body.style.textAlign = "center";
+  body.style.backgroundColor = "#36454f";
+  body.style.color = "#FFFFF0";
+  body.style.fontSize = "36px";
 }
