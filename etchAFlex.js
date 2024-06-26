@@ -10,6 +10,7 @@ const body = document.body;
 const header = document.querySelector(".header")
 const container = document.querySelector(".container");
 const row = document.querySelector(".row")
+const defaultGrid = 16;
 //----------------------------------------------------------------------------->
 
 bodySetup();
@@ -18,34 +19,50 @@ headerSetup();
  
 containerSetup();
 
-createGrid();
+createGrid(defaultGrid);
 
 //----------------------------------------------------------------------------->
 /**
- * @param {*} gridBoxHeight Specifies how many boxes high 
- * @param {*} gridBoxWidth Specifies how many boxes wide
+ * 
  */
-function createGrid(gridBoxHeight, gridBoxWidth) {
-  
-  for(let i = 0; i < 100; i++){
-    createRow();
-  };
-  
-  const rowList = document.querySelectorAll(".row");
-  
-  for (let j = 0; j < 100; ++j){
-    rowList.forEach(element => {
-      createColumn(element);
-    })
-  };
+function randomNumber(number) {
+  return Math.floor(Math.random() * number);
 }
 //----------------------------------------------------------------------------->
 /**
  * 
  */
+function randomColor() {
+  let color = `rgb(${randomNumber(255)} ${randomNumber(255)} ${randomNumber(255)})`;
+  return color;
+}
+//----------------------------------------------------------------------------->
+/**
+ * @param {*} input Specifies grid dimensions 
+ * 
+ */
+function createGrid(input) {
+  
+  for(let i = 0; i < input; i++){
+    createRow();
+  };
+  
+  const rowList = document.querySelectorAll(".row");
+  
+  for (let j = 0; j < input; ++j){
+    rowList.forEach(element => {
+      createColumn(element);
+    })
+  };
+  
+}
+//----------------------------------------------------------------------------->
+/**
+ * "#faf0e5"
+ */
 container.addEventListener("mouseover", (event) => {
     
-  event.target.style.backgroundColor = "black"
+  event.target.style.backgroundColor = randomColor();
 
   setTimeout(() => {event.target.style.backgroundColor = "#faf0e5";}, 1000);
 },
@@ -56,7 +73,15 @@ false,
  * 
  */
 header.addEventListener("click", (event) => {
-  // prompt the user
+  let input = prompt("Enter grid dimension: ", "e.g. 64 for 64 x 64 grid");
+  const rowList = document.querySelectorAll(".row");
+
+  rowList.forEach(element => {
+    container.removeChild(element);
+  })
+  
+  createGrid(input);
+
 })
 //----------------------------------------------------------------------------->
 /**
@@ -66,9 +91,9 @@ header.addEventListener("click", (event) => {
 function createColumn(element) {
   let column = document.createElement("div");
   column.className = "column";
-  column.style.flex = "1";
-  column.style.flexBasis = "100%";
+  column.style.flex = "1 1 auto";
   column.style.aspectRatio = "1/1";
+  column.style.opacity = "1";
   element.append(column)
 }
 //----------------------------------------------------------------------------->
@@ -79,17 +104,18 @@ function createRow() {
   let row = document.createElement("div");
   row.className = "row";
   row.style.display = "flex";
+  row.style.flexWrap = "wrap";
   container.append(row);
 }
 //----------------------------------------------------------------------------->
 /**
- * 
+ * Parent container
  */
 function containerSetup() {
   container.style.maxWidth = "960px";
   container.style.padding = "0px"
   container.style.margin = "0 auto";
-  container.style.height = "960px"
+  container.style.maxHeight = "960px"
   container.style.backgroundColor = "#faf0e5";
 }
 //----------------------------------------------------------------------------->
@@ -103,7 +129,7 @@ function bodySetup() {
 }
 //----------------------------------------------------------------------------->
 /**
- * 
+ * Parent container
  */
 function headerSetup() {
   header.style.display = "flex";
@@ -115,7 +141,7 @@ function headerSetup() {
 }
 //----------------------------------------------------------------------------->
 /**
- * 
+ * Child container
  */
 function titleSetup() {
   let title = document.createElement("div");
@@ -127,7 +153,7 @@ function titleSetup() {
 }
 //----------------------------------------------------------------------------->
 /**
- * 
+ * Child container
  */
 function buttonSetup() {
   let button = document.createElement("button");
