@@ -61,11 +61,9 @@ container.addEventListener("mouseover", (event) => {
  * @param {*} element Represents a parent node. The parent node is used to attach a child element.
  */
 function createColumn(element) {
-  const row = document.querySelector(".row")
   let column = document.createElement("div");
   column.className = "column";
-  column.style.flex = "1";
-  column.style.padding = "1rem 0";
+  
   element.append(column)
 }
 //----------------------------------------------------------------------------->
@@ -75,7 +73,8 @@ function createColumn(element) {
 function createRow() {
   let row = document.createElement("div");
   row.className = "row";
-  row.style.display = "flex";
+  
+  
   container.append(row);
 }
 //----------------------------------------------------------------------------->
@@ -93,5 +92,4 @@ function containerSetup() {
 function bodySetup() {
   body.style.fontFamily = "'Open Sans', sans-serif";
   body.style.textAlign = "center";
-  body.style.padding = "1rem";
 }
