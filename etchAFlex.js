@@ -73,7 +73,7 @@ false,
  * 
  */
 header.addEventListener("click", (event) => {
-  let input = prompt("Enter grid dimension: ", "e.g. 64 for 64 x 64 grid");
+  let input = prompt("Enter grid dimension: ", "64");
   const rowList = document.querySelectorAll(".row");
 
   rowList.forEach(element => {
@@ -94,6 +94,7 @@ function createColumn(element) {
   column.style.flex = "1 1 auto";
   column.style.aspectRatio = "1/1";
   column.style.opacity = "1";
+  column.style.border = "1px solid grey"
   element.append(column)
 }
 //----------------------------------------------------------------------------->
