@@ -1,8 +1,8 @@
-# etch-a-flex
-
 ### Acknowledgement
 
 Thank you to the creators of the Odin Project for putting together a free cirriculum for learning web development.
+
+# etch-a-flex
 
 For this project, I created a Etch-A-Sketch pad using only CSS Flexbox. 
 The project instructions can be found [here](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
